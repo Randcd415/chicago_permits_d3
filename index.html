@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,11 +7,19 @@
 </head>
 </header>
   <div class="title"></div>
+  <div class="buttons">
+    <div class="col-sm-2"><p id="value-range"></p></div>
+    <div class="col-sm"><div id="slider-range"></div>
+  </div>
+</div>
 </header>
 <body>
-  <!-- <div id ="map"></div>
-  <div id ="chart"></div> -->
+  <div class = "flex_container">
+    <div class = "block_map"></div>
+    <div class = "block_chart"></div>
+  </div>
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="index.js"></script>
+  <script src="d3-simple-slider.js"></script>
 </body>
 </html>
