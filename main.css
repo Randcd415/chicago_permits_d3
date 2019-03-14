@@ -89,6 +89,5 @@ div.tooltip {
     font-family: "Segoe UI SemiBold";
     font-size: 14px;
     background: white;
-    border: 2px;
-    pointer-events: none;
+    border: 1px solid lightgrey;
 }
