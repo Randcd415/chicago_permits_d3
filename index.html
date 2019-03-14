@@ -7,19 +7,29 @@
 </head>
 </header>
   <div class="title"></div>
-  <div class="buttons">
+  <div class = "stripe"></div>
+  <div class="slider">
     <div class="col-sm-2"><p id="value-range"></p></div>
     <div class="col-sm"><div id="slider-range"></div>
   </div>
+  <div class="buttons"></div>
 </div>
 </header>
 <body>
   <div class = "flex_container">
-    <div class = "block_map"></div>
-    <div class = "block_chart"></div>
+    <div class = "block_map" id = "block_map"></div>
+    <div class = "block_chart" id = "block_chart"></div>
   </div>
+  <div class = "stripe"></div>
+  <div class="title"></div>
   <script src="https://d3js.org/d3.v4.js"></script>
-  <script src="index.js"></script>
+  <script src="make_map.js"></script>
+  <script src="make_chart.js"></script>
   <script src="d3-simple-slider.js"></script>
+  <script src="make_slider.js"></script>
+  <script src="range_update.js"></script>
+  <script src="process_data.js"></script>
+  <script src="animate.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

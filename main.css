@@ -8,11 +8,21 @@ body {
   font-family: "Segoe UI SemiBold";
   font-size: 30pt;
   text-align: center;
+  background-color: #BCE8FF;
+  height: 7%;
+  padding-top: 0.5%;
 }
 
-.buttons {
+.stripe{
+  height: .3%;
+  background-color: #D10000;
+  opacity: 0.6;
+}
+.slider {
   display: flex;
   justify-content: center;
+  height: 8%;
+  padding-top: 0.5%;
 }
 
 .flex_container {
@@ -30,6 +40,12 @@ body {
 .block_chart {
   padding-top: 20%;
   flex-grow: 1;
+}
+
+.neighborhoods{
+  fill : white;
+  stroke: grey;
+  opacity: 0.3
 }
 
 .map{
@@ -55,6 +71,24 @@ body {
 }
 
 .time_text {
-  font-family: "Segoe UI SemiBold";
-  font-size: 20pt;
+  font-family: "Segoe UI Light";
+  font-size: 17pt;
+}
+
+.buttons {
+  padding-top: 20px;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    width: 80px;
+    height: 40px;
+    padding: 2px;
+    font-family: "Segoe UI SemiBold";
+    font-size: 14px;
+    background: white;
+    border: 2px;
+    pointer-events: none;
 }
