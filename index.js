@@ -50,7 +50,7 @@ Promise.all([
   'chicago.geojson',
   'permits_res.geojson',
   'neighborhoods.geojson',
-  'waterways.geojson'
+  'Waterways.geojson'
 ].map(url => fetch(url).then(data => data.json())))
   .then(data =>{
         return process_data(data);
