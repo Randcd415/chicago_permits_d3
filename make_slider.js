@@ -19,6 +19,11 @@ const sliderRange = d3.sliderBottom()
        return feature.properties.YEAR >= val[0] && feature.properties.YEAR <= val[1]
      })
     var filtered_bar = all_grouped_data.filter(d => d.key >= val[0] && d.key  <= val[1]);
+
+    if (window.moving == true) {
+      clearInterval(iterator);
+      window.moving = false;
+    }
     range_update([path, projection, years_iter, filtered_permits, filtered_bar]);
     // animate([path, projection, years_iter, dict])
     window.years_iter = years_iter;

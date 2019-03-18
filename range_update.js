@@ -40,7 +40,6 @@ function range_update([path, projection, years_iter, filtered_permits, filtered_
    }, {min: Infinity, max: -Infinity});
 
   var bar_gap = (xDomain.max - xDomain.min -((xDomain.max - xDomain.min) % 26)) / 26
-  console.log(bar_gap)
 
    var remainder_pos = xDomain.max % 300
    var num_ticks_pos = (xDomain.max - remainder_pos) / 300
@@ -85,7 +84,7 @@ function range_update([path, projection, years_iter, filtered_permits, filtered_
 
    svg_chart.append("text")
      .attr("class", "chart_title")
-     .attr("x", x(0 + xDomain.min/2))
+     .attr("x", x(-400))
      .attr("y", 44)
      .attr('text-anchor', 'middle')
      .attr('font-size', 16)
@@ -93,7 +92,7 @@ function range_update([path, projection, years_iter, filtered_permits, filtered_
 
    svg_chart.append("text")
      .attr("class", "chart_title")
-     .attr("x", x(0 - xDomain.min/2))
+     .attr("x", x(400))
      .attr("y", 44)
      .attr('text-anchor', 'middle')
      .attr('font-size', 16)

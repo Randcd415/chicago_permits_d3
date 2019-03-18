@@ -1,6 +1,6 @@
 function process_data(data) {
 
-  const [map, permits, neighborhoods] = data
+  const [map, permits, neighborhoods, waterways] = data
 
   permits.features.forEach(function(d) {
       d.properties.ISSUE_DATE = parseTime(d.properties.ISSUE_DATE );
@@ -50,5 +50,5 @@ function process_data(data) {
       bar_array[years[y]] = dict[years[y]]
     }
 
-  return ([map, permits, neighborhoods, projection, path, all_grouped_data, dict]);
+  return ([map, permits, neighborhoods, waterways, projection, path, all_grouped_data, dict]);
 }

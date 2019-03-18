@@ -1,7 +1,5 @@
 // SET UP MAP STATICS
-function make_map([map, permits, neighborhoods, projection, path]) {
-
-console.log(neighborhoods.features[1].properties.Name);
+function make_map([map, permits, neighborhoods, waterways, projection, path]) {
 
 g_map.selectAll("path")
  .data(map.features)
@@ -9,6 +7,13 @@ g_map.selectAll("path")
  .append("path")
  .attr("d", path)
  .attr("class", "map");
+
+ g_map.selectAll("path")
+  .data(waterways.features)
+  .enter()
+  .append("path")
+  .attr("d", path)
+  .attr("class", "waterways");
 
 // tooltip borrowed from https://bl.ocks.org/tiffylou/88f58da4599c9b95232f5c89a6321992
 var tooltip = d3.select(".block_map").append("div")

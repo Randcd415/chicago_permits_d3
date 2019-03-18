@@ -1,20 +1,39 @@
 function make_chart([map, permits, all_grouped_data]) {
 
-var xDomain = all_grouped_data.reduce((acc, row) => {
+const xDomain = all_grouped_data.reduce((acc, row) => {
 return {
   min: Math.min(row.Demolition, acc.min),
   max: Math.max(row.Construction, acc.max)
 };
 }, {min: Infinity, max: -Infinity});
 
+var bar_gap = (xDomain.max - xDomain.min -((xDomain.max - xDomain.min) % 26)) / 26
+console.log(bar_gap)
+
+var remainder_pos = xDomain.max % 300
+var num_ticks_pos = (xDomain.max - remainder_pos) / 300
+var remainder_neg = xDomain.min % 300
+var num_ticks_neg = (xDomain.min - remainder_neg) / 300
+
+var neg_axis = []
+for (i = 0; i < (num_ticks_neg * -1) -1; i++) {
+  neg_axis.push((i+1) * -300 - bar_gap);
+}
+var pos_axis = []
+for (i = 0; i < num_ticks_pos -1; i++) {
+  pos_axis.push((i+1) * 300 + bar_gap);
+}
+
+var tick_values = neg_axis.concat(pos_axis)
+
 var x = d3.scaleLinear()
   .domain([xDomain.min, xDomain.max])
   .range([margin_chart.left, margin_chart.left + chart_plotWidth]);
 
 var x_axis = d3.axisBottom(x)
-   .tickValues([-500 - bar_gap, 500 + bar_gap, 1000 + bar_gap, 1500 + bar_gap, 2000 + bar_gap])
-   .tickFormat(function(d, i){ if ( d > 0) return d - 125;
-                               if (d < 0) return (d + 125) * -1});
+   .tickValues(tick_values)
+   .tickFormat(function(d, i){ if ( d > 0) return d - bar_gap;
+                               if (d < 0) return (d + bar_gap) * -1});
 
 var years = range(2006, 2019, 1);
 
@@ -41,7 +60,7 @@ labels.enter()
 
 svg_chart.append("text")
   .attr("class", "chart_title")
-  .attr("x", x(xDomain.min/2))
+  .attr("x", x(400))
   .attr("y", 44)
   .attr('text-anchor', 'middle')
   .attr('font-size', 16)
@@ -49,7 +68,7 @@ svg_chart.append("text")
 
 svg_chart.append("text")
   .attr("class", "chart_title")
-  .attr("x", x(-xDomain.min/2))
+  .attr("x", x(-400))
   .attr("y", 44)
   .attr('text-anchor', 'middle')
   .attr('font-size', 16)

@@ -54,6 +54,12 @@ body {
   opacity: 0.5
 }
 
+.waterways{
+  fill : #090982;
+  stroke: #000C82;
+  opacity: 0.5
+}
+
 .dot{
   stroke: 1;
 }
@@ -90,4 +96,11 @@ div.tooltip {
     font-size: 14px;
     background: white;
     border: 1px solid lightgrey;
+}
+
+.source{
+  font-family: "Segoe UI Light";
+  font-size: 14pt;
+  vertical-align: top;
+  padding-bottom: 20px;
 }

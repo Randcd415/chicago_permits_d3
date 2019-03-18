@@ -33,6 +33,10 @@ const svg_chart = d3.select(".block_chart").append("svg")
     .attr("width", chart_width)
     .attr("height", chart_height);
 
+const source = d3.select('p#source').append("text")
+    .attr("class", "source")
+    .text("Data from Chicago Data Portal")
+
 const bar_gap = 125
 
 // this range function borrowed from stack overflow: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
@@ -45,13 +49,14 @@ function range(start, end, delta) {
 Promise.all([
   'chicago.geojson',
   'permits_res.geojson',
-  'neighborhoods.geojson'
+  'neighborhoods.geojson',
+  'waterways.geojson'
 ].map(url => fetch(url).then(data => data.json())))
   .then(data =>{
         return process_data(data);
   })
-  .then(([map, permits, neighborhoods, projection, path, all_grouped_data, dict]) => {
-        make_map([map, permits, neighborhoods, projection, path]);
+  .then(([map, permits, neighborhoods, waterways, projection, path, all_grouped_data, dict]) => {
+        make_map([map, permits, neighborhoods, waterways, projection, path]);
         make_chart([map, permits, all_grouped_data]);
         make_slider([map, permits, path, projection, all_grouped_data, dict])
         animate([projection, path, dict]);

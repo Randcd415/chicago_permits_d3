@@ -1,13 +1,25 @@
 function animate([projection, path, dict]) {
 
+  var years_iter = range(2006,2018,1)
+
+// pause and play button code adapted from https://bl.ocks.org/officeofjane/47d2b0bfeecfcb41d2212d06d095c763
   const animate = d3.select('.buttons')
           .append("button")
           .attr("class", "timelapse")
           .text("Monthly Timelapse")
           .on('click', function(){
+            var button = d3.select(this);
+            if (button.text() == "Pause") {
+              window.moving = false;
+              clearInterval(iterator);
+              // timer = 0;
+              button.text("Monthly Timelapse");
+            } else {
+              window.moving = true;
+              button.text("Pause");
 
+            var years_iter = window.years_iter;
             var filtered_dict = {}
-            var filtered_bar_array = []
             var months_iter = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
             for (y in years_iter){
               filtered_dict[years_iter[y]] = dict[years_iter[y]];
@@ -55,5 +67,6 @@ function animate([projection, path, dict]) {
                 }
              };
             iterator = setInterval(update_map, 300);
-          });
-}
+          };
+});
+};
