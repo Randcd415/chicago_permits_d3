@@ -8,7 +8,6 @@ return {
 }, {min: Infinity, max: -Infinity});
 
 var bar_gap = (xDomain.max - xDomain.min -((xDomain.max - xDomain.min) % 26)) / 26
-console.log(bar_gap)
 
 var remainder_pos = xDomain.max % 300
 var num_ticks_pos = (xDomain.max - remainder_pos) / 300
@@ -53,7 +52,7 @@ labels.enter()
   .append('text')
   .attr('class', 'chart_label')
   .attr('x', d => x(0))
-  .attr('y', d => y_scale(d) + 14)
+  .attr('y', d => y_scale(d) + (chart_plotHeight / years.length)/2)
   .attr('text-anchor', 'middle')
   .attr('font-size', 13)
   .text(d => d);

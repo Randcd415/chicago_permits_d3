@@ -1,6 +1,8 @@
 // SET UP MAP STATICS
 function make_map([map, permits, neighborhoods, waterways, projection, path]) {
 
+spinner.stop();
+
 g_map.selectAll("path")
  .data(map.features)
  .enter()
@@ -8,19 +10,19 @@ g_map.selectAll("path")
  .attr("d", path)
  .attr("class", "map");
 
- g_map.selectAll("path")
-  .data(waterways.features)
-  .enter()
-  .append("path")
-  .attr("d", path)
-  .attr("class", "waterways");
-
 // tooltip borrowed from https://bl.ocks.org/tiffylou/88f58da4599c9b95232f5c89a6321992
 var tooltip = d3.select(".block_map").append("div")
        .attr("class", "tooltip")
        .style("opacity", 0);
 
- g_map.selectAll("path")
+g_map.selectAll("waterways")
+.data(waterways.features)
+.enter()
+.append("path")
+.attr("d", path)
+.attr("class", "waterways");
+
+ g_map.selectAll("neighborhoods")
   .data(neighborhoods.features)
   .enter()
   .append("path")
@@ -37,7 +39,7 @@ var tooltip = d3.select(".block_map").append("div")
   })
   .on("mouseout", d => {
     tooltip.transition()
-    .duration(500)
+    .duration(1000)
     .style("opacity", 0);
   })
 
@@ -73,4 +75,15 @@ var tooltip = d3.select(".block_map").append("div")
      .attr('transform', `translate(${projection([-87.57, 41.8665])})` )
      .text("Demolition");
 
-  }
+ d3.select('#text1').append("text")
+   .attr("dy", "0em")
+   .text("A city is not static. Chicago's neighborhoods are continually remade in the image of people moving in, or people left behind. As tides of investment ebb and flow, these patterns can be divined through residential building permits.")
+
+ d3.select('#text2').append("text")
+  .attr("dy", "1em")
+  .text("In Chicago's Northwest Side, hundreds of new homes are built in burgeoning neighborhoods such as Wicker Park and Logan Square. In Northside neighborhoods like Lake View, homes are torn down and replaced.")
+
+  d3.select('#text3').append("text")
+   .attr("dy", "1em")
+   .text("For Southside neighborhoods like Englewood, the dominant trend is demolition. Hundreds of buildings, often vacant and deemed unsafe or magnets for crime, are torn down, with little new investment afterwards.")
+}

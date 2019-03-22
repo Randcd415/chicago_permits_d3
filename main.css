@@ -28,18 +28,30 @@ body {
 .flex_container {
   display: flex;
   flex-direction: row;
-  width: 100%
+  width: 100%;
 }
 
  .block_map {
   padding-left: 100px;
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  width: 40%;
+  padding-top: 5%;
   margin: auto;
 }
 
+.block_2 {
+  display: flex;
+  flex-direction: column;
+  width: 60%
+}
+.block_text {
+  height: 40%;
+  padding-top: 10%;
+  padding-right: 10%;
+  font-family: "Segoe UI Light";
+}
 .block_chart {
-  padding-top: 20%;
-  flex-grow: 1;
+  height: 60%;
 }
 
 .neighborhoods{
@@ -55,8 +67,8 @@ body {
 }
 
 .waterways{
-  fill : #090982;
-  stroke: #000C82;
+  fill : #BCE8FF;
+  stroke: #BCE8FF;
   opacity: 0.5
 }
 
@@ -98,9 +110,46 @@ div.tooltip {
     border: 1px solid lightgrey;
 }
 
-.source{
+.footer {
   font-family: "Segoe UI Light";
   font-size: 14pt;
   vertical-align: top;
-  padding-bottom: 20px;
+  text-align: center;
+  background-color: #BCE8FF;
+  height: 7%;
+}
+
+.stripe1{
+  height: 4%;
+  background-color: #D10000;
+  opacity: 0.6;
+}
+
+/* spin.css borrowed from https://spin.js.org/spin.css */
+
+@keyframes spinner-line-fade-more {
+  0%, 100% {
+    opacity: 0; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-quick {
+  0%, 39%, 100% {
+    opacity: 0.25; /* minimum opacity */
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-default {
+  0%, 100% {
+    opacity: 0.22; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
 }

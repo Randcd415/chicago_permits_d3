@@ -77,7 +77,7 @@ function range_update([path, projection, years_iter, filtered_permits, filtered_
      .append('text')
      .attr('class', 'chart_label')
      .attr('x', d => x(0))
-     .attr('y', d => y_scale(d) + 14)
+     .attr('y', d => y_scale(d) + (chart_plotHeight / years_iter.length)/2)
      .attr('text-anchor', 'middle')
      .attr('font-size', 13)
      .text(d => d);

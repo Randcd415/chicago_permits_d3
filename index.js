@@ -8,8 +8,8 @@ const width = 500;
 const margin_map = {top: 50, left: 100, right: 50, bottom: 50};
 const plotWidth = width - margin_map.left - margin_map.right;
 const plotHeight = height - margin_map.bottom - margin_map.top;
-const chart_height = 400;
-const chart_width = 500;
+const chart_height = 500;
+const chart_width = 600;
 const margin_chart = {top: 50, left: 50, right: 50, bottom: 50};
 const chart_plotWidth = chart_width - margin_chart.left - margin_chart.right;
 const chart_plotHeight = chart_height - margin_chart.bottom - margin_chart.top;
@@ -33,7 +33,7 @@ const svg_chart = d3.select(".block_chart").append("svg")
     .attr("width", chart_width)
     .attr("height", chart_height);
 
-const source = d3.select('p#source').append("text")
+const source = d3.select('.bottom_block').append("text")
     .attr("class", "source")
     .text("Data from Chicago Data Portal")
 
@@ -45,6 +45,21 @@ function range(start, end, delta) {
     {length: (end - start) / delta}, (v, k) => (k * delta) + start
     )
   };
+
+  // Spinner code borrowed from http://bl.ocks.org/eesur/cf81a5ea738f85732707
+  var opts = {
+    lines: 9, // The number of lines to draw
+    length: 9, // The length of each line
+    width: 5, // The line thickness
+    radius: 14, // The radius of the inner circle
+    color: '#D10000', // #rgb or #rrggbb or array of colors
+    speed: 1.9, // Rounds per second
+    trail: 40, // Afterglow percentage
+    className: 'spinner', // The CSS class to assign to the spinner
+  };
+
+  var target = document.getElementById("flex_container");
+  var spinner = new Spinner(opts).spin(target);
 
 Promise.all([
   'chicago.geojson',

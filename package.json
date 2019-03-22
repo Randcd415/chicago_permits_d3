@@ -15,7 +15,8 @@
     "d3-simple-slider": "^1.4.2",
     "eslint": "^3.13.1",
     "eslint-config-uber-es2015": "^3.0.1",
-    "live-server": "^0.7"
+    "live-server": "^0.7",
+    "spin.js": "^4.0.0"
   },
   "author": "",
   "license": "ISC"

@@ -16,17 +16,27 @@
 </div>
 </header>
 <body>
-  <div class = "flex_container">
+  <div class = "flex_container" id = "flex_container">
     <div class = "block_map" id = "block_map"></div>
-    <div class = "block_chart" id = "block_chart"></div>
+    <div class = "block_2" id = "block_2">
+      <div class = "block_text" id = "block_text">
+        <p id="text1"></p>
+        <p id="text2"></p>
+        <p id="text3"></p>
+      </div>
+      <div class = "block_chart" id = "block_chart"></div>
+    </div>
   </div>
-  <div class = "stripe"></div>
-  <div class="title"><p id="source"></p></div>
+  <div class="footer">
+    <div class = "stripe1"></div>
+    <div class = "bottom_block"></div>
+  </div>
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="make_map.js"></script>
   <script src="make_chart.js"></script>
   <script src="d3-simple-slider.js"></script>
   <script src="make_slider.js"></script>
+  <script src="spin.js"></script>
   <script src="range_update.js"></script>
   <script src="process_data.js"></script>
   <script src="animate.js"></script>
